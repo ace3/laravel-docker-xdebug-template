@@ -1,0 +1,8 @@
+#!/bin/bash
+HOST=host.docker.internal
+
+# xdebug 3
+php -dxdebug.mode=debug -dxdebug.start_with_request=yes -dxdebug.client_host=$HOST -dxdebug.client_port=9003 artisan  "$@"
+
+# xdebug < 3
+# php -dxdebug.remote_autostart=on -dxdebug.remote_connect_back=off -dxdebug.remote_host=$HOST -dxdebug.client_port=9003 artisan  "$@"
